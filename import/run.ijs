@@ -1,6 +1,6 @@
 NB. run
 NB.
-NB. Write pages to be updated to JSRC. Then run this page
+NB. Write pages to be updated to JSRC. Then run this script.
 
 load '~Jwiki/import/build.ijs'
 
