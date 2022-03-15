@@ -1,0 +1,52 @@
+= Box Draw Characters =
+
+J uses box drawing characters when displaying boxed data. Typically this requires a fixed pitch font.
+
+The most portable way of drawing boxes is with the ascii characters <tt>+|-</tt> as below:
+
+<pre>+---+---+----+
+|abc|def|ghij|
++---+---+----|
+|2  |3  |4   |
++---+---+----+</pre>
+
+This displays predictably in all environments,  works in plain text email, and is the most portable form for communicating between users. When these aren't important and you have a suitable font you can use special box draw chars to provide crisper displays.
+
+Box drawing with unicode J font characters is as below:
+
+<pre>┌───┬───┬────┐
+│abc│def│ghij│
+├───┼───┼────┤
+│2  │3  │4   │
+└───┴───┴────┘</pre>
+
+J draws boxes with 11 characters:
+<pre>upper left corner     T down        upper right corner
+T right               cross         T left
+lower left corner     T up          lower right corner
+vertical              horizontal</pre>
+
+The values for the 11 characters can be queried with 9!:6 and set with 9!:7:
+
+Box draw with J font chars is set with:
+<pre>9!:7 [ (16+i.11){a.</pre>
+
+Box draw with <tt>+|-</tt> is set with:
+<pre>9!:7 '+++++++++|-'</pre>
+
+Equivalently, call the utility <tt>boxdraw_j_</tt>:
+
+<pre>boxdraw_j_ 0        NB. J font chars
+boxdraw_j_ 1        NB. ascii font chars</pre>
+
+The default boxdraw is set in the configuration files: base.cfg (jconsole and JHS) and qtide.cfg (Qt IDE).
+
+Note that box draw can also use UTF-8 characters, e.g.
+
+<pre>9!:7 [ 218 194 191 195 197 180 192 193 217 179 196{a.</pre>
+
+J Engine input/output is in UTF-8 and the 9!:7 J font setting results in the Unicode values:
+
+<pre>9484 9516 9488 9500 9532 9508 9492 9524 9496 9474 9472</pre>
+
+Note: some unicode fixed pitch fonts do not have box draw characters of the same pitch and do not display well.
