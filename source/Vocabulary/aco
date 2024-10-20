@@ -1,0 +1,103 @@
+<small>
+[[Vocabulary/acapdot|>>]]
+[[Vocabulary/adot|<<]] <tt>&nbsp;</tt>
+[[NuVoc|Back to: Vocabulary]]
+[[JDic:dadot|Thru to: Dictionary]]
+</small>
+<span id="monadic"></span>
+
+:{| class="wikitable"
+|-
+|style="background:#ffccee; font-size: 18pt;" |<tt>a:</tt>
+|style="font-weight: bold; font-size: 18pt;" |Ace (Boxed Empty)
+|style="font-weight: bold; font-size: 18pt;" |Noun
+|}
+
+----
+
+<i>test xml upload to wiki</i>
+
+An [[Vocabulary/AET#Atom|atom]] consisting of the [[Vocabulary/Glossary#Boxed|boxed]] [[Vocabulary/Glossary#Empty|empty]] [[Vocabulary/AET#List|list]] (<tt><0$0</tt>).
+
+<pre>
+   # a:   NB. Tally (#) shows a: consists of 1 (list) item
+1
+   $ a:   NB. But the Shape Of ($) a: is the empty list
+
+   $$ a:
+0
+</pre>
+
+----
+=== Common uses ===
+1. For convenience inside a tacit definition
+
+<pre>
+   listnameswithprefix=: 0 1 2 3&$: :(] ((] -: ({.~ #))S:0 _ # [)~ a: , [ 4!:1~ [: {. ])
+
+   NB. a: appears here ____________________________________________^
+</pre>
+
+2. Remove unwanted [[Vocabulary/Glossary#Empty|empty]] [[Vocabulary/Glossary#String|strings]] from a [[Vocabulary/AET#List|list]] of [[Vocabulary/Glossary#Boxed|boxed]] [[Vocabulary/Glossary#String|strings]]
+
+<pre>
+   ] z=: 'alpha' ; '' ; 'bravo' ; 'charlie' ; '' ; 'delta'
++-----++-----+-------++-----+
+|alpha||bravo|charlie||delta|
++-----++-----+-------++-----+
+   z -. a:
++-----+-----+-------+-----+
+|alpha|bravo|charlie|delta|
++-----+-----+-------+-----+
+</pre>
+
+3. Denote an [[Vocabulary/Glossary#Empty|empty]] [[Vocabulary/Glossary#Axis|axis]] for <tt>&nbsp;x { y </tt> or <tt>&nbsp;x u;.3 y </tt>
+
+<pre>
+   i. 3 4
+0 1  2  3
+4 5  6  7
+8 9 10 11
+   (<a:;2) { i. 3 4  NB. Fetch column 2
+2 6 10
+</pre>
+
+4. To select all of <tt>y</tt>, whatever its [[Vocabulary/AET#Rank|rank]], using: <tt>{</tt>
+
+<pre>
+   a: { ''
+
+   a: { 0
+0
+   a: { i. 3
+0 1 2
+</pre>
+
+----
+=== More Information ===
+1. (<tt>a:</tt>) is the [[Vocabulary/Glossary#Value|value]] used for [[Vocabulary/FramingFill|framing fill]] for [[Vocabulary/Glossary#Boxed|boxed]] [[Vocabulary/Glossary#Result|results.]]
+
+2. Strictly <tt>a:</tt> is an [[Vocabulary/Glossary#Empty|empty]] [[Vocabulary/Glossary#Boolean|Boolean]] [[Vocabulary/AET#List|list]], [[Vocabulary/Glossary#Boxed|boxed]] (i. e. <tt><0$0</tt>).
+But, by and large, J treats all empty lists as equivalent, as tested by (<tt>-:</tt>)
+
+<small>It matters if you [[Vocabulary/Glossary#Unbox|unbox]] <tt>a:</tt> and <i>overtake</i> the [[Vocabulary/Glossary#Contents|contents]],
+
+or join it to another empty list, or explicitly check the [[Vocabulary/Glossary#Type|type]] with <tt>3!:0</tt>, or use it as <tt>y</tt> in <tt>x ": y</tt> </small>
+
+<pre>
+   lace=: <''
+   assert lace -: a:
+   NB. But...
+   <  3{. > lace
++---+
+|   |
++---+
+   <  3{. > a:
++-----+
+|0 0 0|
++-----+
+</pre>
+
+----
+[[Category:Voc]] [[Category:VocConstant]]
+__NOTOC__

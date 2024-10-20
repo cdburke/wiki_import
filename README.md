@@ -1,3 +1,7 @@
+---
+ title: bulk import to J wiki
+---
+
 ## bulk import to J wiki
 
 Define folder name ~Jwiki for the repo. This has subfolders:

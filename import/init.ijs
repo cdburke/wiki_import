@@ -2,9 +2,9 @@ NB. init
 
 hostname=. }:hostcmd_j_ 'hostname'
 
-NB. update authors (=wiki names) and hostnames as appropriate
+NB. update authors (=wiki names) and desktop hostnames as appropriate
 authors=. 'Chris Burke';'Raul Miller'
-hostnames=. 't490';'XXX'
+hostnames=. 'minty';'XXX'
 JUSR=: (hostnames i. <hostname) pick authors
 
 NB. =========================================================
@@ -16,8 +16,8 @@ JSRC=: jpath '~Jwiki/source'
 NB. target directory on local machine (any content is first deleted):
 JTGT=: jpath '~Jwiki/target'
 
-NB. wiki server IP
-JSVR=: '34.230.205.230'
+NB. wiki server
+JSVR=: 'code4.jsoftware.com'
 
 NB. target xml and page list files:
 JXML=: JTGT, '/wiki.xml'

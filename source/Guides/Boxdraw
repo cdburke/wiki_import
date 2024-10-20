@@ -1,5 +1,7 @@
 = Box Draw Characters =
 
+<i>test xml upload to wiki</i>
+
 J uses box drawing characters when displaying boxed data. Typically this requires a fixed pitch font.
 
 The most portable way of drawing boxes is with the ascii characters <tt>+|-</tt> as below:
@@ -50,3 +52,4 @@ J Engine input/output is in UTF-8 and the 9!:7 J font setting results in the Uni
 <pre>9484 9516 9488 9500 9532 9508 9492 9524 9496 9474 9472</pre>
 
 Note: some unicode fixed pitch fonts do not have box draw characters of the same pitch and do not display well.
+[[Category:Interfaces D.2]][[Category:Interfaces N.5]]

@@ -40,9 +40,10 @@ wrapmw=: 3 : 0
 NB. =========================================================
 upwikixml=: 3 : 0
 f=. jpath '~temp/upwikixml.sh'
+t=. 'web@\[',JSVR,'\]:/home/web/wikiupload'
 r=. '#!/bin/bash',LF
-r=. r,'scp ',JXML,' web@',JSVR,':/home/web/wikiupload',LF
-r=. r,'scp ',JTXT,' web@',JSVR,':/home/web/wikiupload',LF
+r=. r,'scp ',JXML,' ',t,LF
+r=. r,'scp ',JTXT,' ',t,LF
 r fwrites f
 fmakex f
 hostcmd_j_ f
