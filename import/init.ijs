@@ -16,8 +16,9 @@ JSRC=: jpath '~Jwiki/source'
 NB. target directory on local machine (any content is first deleted):
 JTGT=: jpath '~Jwiki/target'
 
-NB. wiki server
+NB. wiki server and user
 JSVR=: 'code4.jsoftware.com'
+JUSR=: 'web'
 
 NB. target xml and page list files:
 JXML=: JTGT, '/wiki.xml'
@@ -25,4 +26,4 @@ JTXT=: JTGT, '/pages.txt'
 
 NB. =========================================================
 mkdir_j_ JTGT
-direrase_jp_ JTGT,'/*'
+hostcmd_j_ 'rm ',JTGT,'/*'
